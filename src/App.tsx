@@ -16,6 +16,8 @@ import { SettingsManager } from './components/SettingsManager';
 import { RateChartMatrix } from './components/RateChartMatrix';
 import { ReceiptSlipModal } from './components/ReceiptSlipModal';
 import { ImportModal, ImportType } from './components/ImportModal';
+import { TrialRunModal } from './components/TrialRunModal';
+import { OfflineIndicator } from './components/OfflineIndicator';
 import { CheckCircle2, X } from 'lucide-react';
 
 const STORAGE_KEYS = {
@@ -39,6 +41,9 @@ export default function App() {
   const [importModalOpen, setImportModalOpen] = useState<boolean>(false);
   const [importModalType, setImportModalType] = useState<ImportType>('farmers');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // Trial Run & Download Guide Modal
+  const [trialRunModalOpen, setTrialRunModalOpen] = useState<boolean>(false);
 
   // Core Data States with LocalStorage Persistence
   const [entries, setEntries] = useState<MilkEntry[]>(() => {
@@ -190,6 +195,7 @@ export default function App() {
         setSelectedDate={setSelectedDate}
         onResetData={handleResetData}
         onOpenImport={() => handleOpenImport('farmers')}
+        onOpenTrialRun={() => setTrialRunModalOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -268,6 +274,15 @@ export default function App() {
         onImportFarmers={handleImportFarmers}
         onImportRateConfig={handleImportRateConfig}
       />
+
+      {/* Download & Trial Run Guide Modal */}
+      <TrialRunModal
+        isOpen={trialRunModalOpen}
+        onClose={() => setTrialRunModalOpen(false)}
+      />
+
+      {/* Offline Status Connectivity Banner */}
+      <OfflineIndicator />
 
       {/* Toast Notification */}
       {toastMessage && (

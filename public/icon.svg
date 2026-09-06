@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="canGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="50%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Outer accent circle -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#34d399" stroke-width="4" stroke-opacity="0.3" />
+
+  <!-- Milk Can Icon in Center (Safe Zone) -->
+  <g filter="url(#shadow)">
+    <!-- Can Lid Top Handle -->
+    <path d="M216 110 H296 V130 H216 Z" fill="#e2e8f0" rx="6" />
+    <path d="M236 94 H276 V110 H236 Z" fill="#94a3b8" rx="4" />
+
+    <!-- Can Neck -->
+    <path d="M200 134 H312 V174 H200 Z" fill="#f1f5f9" />
+    <path d="M190 170 H322 V182 H190 Z" fill="#cbd5e1" rx="4" />
+
+    <!-- Can Shoulders & Body -->
+    <path d="M190 182 L150 240 V370 C150 395 170 414 195 414 H317 C342 414 362 395 362 370 V240 L322 182 Z" fill="url(#canGrad)" />
+
+    <!-- Can Side Handles -->
+    <path d="M142 248 C120 252 120 286 142 292" fill="none" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
+    <path d="M370 248 C392 252 392 286 370 292" fill="none" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round" />
+
+    <!-- Milk Droplet / Quality Badge on Can Body -->
+    <circle cx="256" cy="320" r="44" fill="#047857" />
+    <path d="M256 292 C256 292 276 320 276 332 C276 343 267 352 256 352 C245 352 236 343 236 332 C236 320 256 292 256 292 Z" fill="#ffffff" />
+    <circle cx="250" cy="330" r="3.5" fill="#34d399" />
+  </g>
+
+  <!-- Text Badge -->
+  <text x="256" y="462" text-anchor="middle" fill="#a7f3d0" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" letter-spacing="4">DCS MILK</text>
+</svg>

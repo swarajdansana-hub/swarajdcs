@@ -13,6 +13,7 @@ import {
   Upload
 } from 'lucide-react';
 import { ShiftType } from '../types';
+import { PWAInstallButton } from './PWAInstallButton';
 
 interface HeaderProps {
   activeTab: 'entry' | 'dashboard' | 'cycle' | 'reports' | 'ratechart' | 'settings';
@@ -23,6 +24,7 @@ interface HeaderProps {
   setSelectedDate: (date: string) => void;
   onResetData: () => void;
   onOpenImport?: () => void;
+  onOpenTrialRun?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -34,6 +36,7 @@ export const Header: React.FC<HeaderProps> = ({
   setSelectedDate,
   onResetData,
   onOpenImport,
+  onOpenTrialRun,
 }) => {
   return (
     <header className="bg-white border-b border-stone-200 sticky top-0 z-30 shadow-xs">
@@ -108,6 +111,11 @@ export const Header: React.FC<HeaderProps> = ({
                 <Upload className="w-3.5 h-3.5 text-emerald-700" />
                 <span className="hidden sm:inline">Import</span>
               </button>
+            )}
+
+            {/* Install / Trial Run Download Button */}
+            {onOpenTrialRun && (
+              <PWAInstallButton onOpenGuide={onOpenTrialRun} />
             )}
 
             {/* Reset Sample Button */}
