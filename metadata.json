@@ -1,0 +1,6 @@
+{
+  "name": "DCS Milk Collection System",
+  "description": "Dairy Cooperative Society milk procurement with daily shift entries, Fat and SNF rate calculations, 10-day payment cycle summaries, and daily profit trend dashboards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
